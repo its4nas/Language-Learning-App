@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:language_learning_app/models/number.dart';
 
@@ -39,7 +40,18 @@ class NumberItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(right: 20.0),
               child: IconButton(
-                  onPressed: () {print("object");},
+                  onPressed: () 
+                  {
+                    try
+                    {
+                      AudioCache player = AudioCache(prefix: 'assets/sounds/numbers/');
+                      player.play('number_one_sound.mp3');
+                    }
+                    catch(ex)
+                    {
+                      print("could not play sound");
+                    }
+                  },
                   icon: const Icon(Icons.play_arrow),
                   color: Colors.white,
                   iconSize: 30),
